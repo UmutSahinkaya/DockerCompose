@@ -1,0 +1,41 @@
+docker-compose build
+docker compose create
+docker compose start
+docker compose stop
+docker compose rm
+docker compose up/down
+docker compose push
+--
+docker-compose.yml ayarlarý
+#image: microservice1-image 
+#container_name: microservice1-container scale komutunu kullanmak için kapattým (1 den fazla instance almak için)
+--
+//---------------------------//---------------------------//---------------------------//
+docker compose stop microservice1.api 
+docker compose exec microservice1.api /bin/bash
+docker compose up --scale microservice1.api
+docker compose up --scale microservice1.api=3 --scale microservice2.api=2
+//---------------------------//---------------------------//---------------------------//
+create ve start komutlarý
+create:Image oluþtuysa container larý oluþturma komutudur. container ý çalýþtýrmaz.
+start:Container larý çalýþtýrma kodudur.
+-----------------------------------------------------------------------------------------
+stop ve rm komutlarý
+stop: Adý üstünde çalýþan container larý durdurur.
+rm: Contanier silme komutudur.
+-----------------------------------------------------------------------------------------
+Up ve Down komutlarý
+Up:Image larý sýfýrdan build eder.(Daha önce builde edilmemiþse eðer!!!)Container larý oluþturur ve baþlatýr.
+Down:Up ta olan þeylerin tam tersini yapar.
+-----------------------------------------------------------------------------------------
+pause/unpause Komutlarý
+pause: Container pause edersek ve memory de bir deðer tutuyorsa deðerler kaybolmuyor.
+unpause: yukarýdakinin tam tersi 
+stop komutundan farký pause komutunda tuttugu veriler kalýcý olarak silinmiyor stop ise container ý uçuruyor.
+-----------------------------------------------------------------------------------------
+"exec" Komutu
+Container içerisinde bir komut çalýþtýrmamýza olanak saðlýyor.Bash komut satýrýna baðlanmak için kullanýyoruz. Ýþletim sistemi üzerinde deðiþiklik yapmak istediðimizde kullanýyoruz
+-----------------------------------------------------------------------------------------
+"scale" Komutu
+Bu komut yardýmýyla containerýmýzýn birden fazla instance ýný ayaða kaldýrabiliyoruz.
+-----------------------------------------------------------------------------------------

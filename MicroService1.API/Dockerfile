@@ -4,9 +4,9 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src 
-COPY ["MicroService1.API.csproj", "MicroService1.API/"]			
+COPY ["MicroService1.API/MicroService1.API.csproj", "MicroService1.API/"]			
 RUN dotnet restore "MicroService1.API/MicroService1.API.csproj"	
-COPY . ./MicroService1.API/										
+COPY . .										
 WORKDIR "/src/MicroService1.API"								
 RUN dotnet build "MicroService1.API.csproj" -c Release -o /app/build  
 

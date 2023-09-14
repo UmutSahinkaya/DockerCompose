@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MicroService1.API.Controllers
+namespace MicroService2.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static int _counter = 0;
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -29,13 +28,6 @@ namespace MicroService1.API.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
-        }
-
-        [HttpPost]
-        public IActionResult Post()
-        {
-            _counter++;
-            return Ok(_counter);
         }
     }
 }
