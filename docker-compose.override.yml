@@ -1,6 +1,14 @@
 version: '3.4'
 
 services:
+  sqlserver:
+    environment :
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password12*
+    volumes:
+      - sqlserver_volume:/var/opt/mssql
+    ports:
+      - "1433:1433"
   microservice1.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
