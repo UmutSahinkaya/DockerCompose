@@ -1,6 +1,8 @@
 version: '3.4'
 
 services:
+  sqlserver:
+   image: mcr.microsoft.com/mssql/server:2022-latest
   microservice1.api:
     image: umutsahinkaya/microservice1:${version}
     container_name: microservice1-container
@@ -13,3 +15,5 @@ services:
     build:
       context: .
       dockerfile: MicroService2.API/Dockerfile
+volumes:
+  sqlserver_volume:    
